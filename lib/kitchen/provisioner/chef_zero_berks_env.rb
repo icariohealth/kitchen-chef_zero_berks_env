@@ -15,7 +15,7 @@ module Kitchen
         info('Preparing files for transfer')
         debug("Creating local sandbox in #{sandbox_path}")
         SandboxBerksEnv.new(config, sandbox_path, instance).populate
-        prepare_chef_client_zero_rb
+        super
         prepare_validation_pem
         prepare_config_rb
       end

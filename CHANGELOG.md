@@ -1,5 +1,9 @@
 # kitchen-chef_zero_berks_env
 
+## 1.3.1 (2021-06-16)
+
+Slight cleanup in favor of calling Kitchen::Provisioner::Base.create_sandbox directly
+
 ## 1.3.0 (2021-06-09)
 
 Removed version pins in gemspec

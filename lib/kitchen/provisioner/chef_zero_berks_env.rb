@@ -10,12 +10,8 @@ module Kitchen
     # @author Mario Santos <mario.rf.santos@gmail.com>
     class ChefZeroBerksEnv < ChefZero
       def create_sandbox
-        @sandbox_path = Dir.mktmpdir("#{instance.name}-sandbox-")
-        File.chmod(0755, sandbox_path)
-        info('Preparing files for transfer')
-        debug("Creating local sandbox in #{sandbox_path}")
+        Kitchen::Provisioner::Base.instance_method(:create_sandbox).bind(self).call
         SandboxBerksEnv.new(config, sandbox_path, instance).populate
-        super
         prepare_validation_pem
         prepare_config_rb
       end
